@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURUM Palace & Resort | 5-Star Luxury Hotel & Spa</title>
+  <meta name="description" content="AURUM Palace & Resort - Betakror hashamat, olijanob mehmondo'stlik, termal SPA va Michelin darajasidagi restoranlar bilan 5 yulduzli premium mehmonxona. Xonalarni onlayn bron qiling.">
+  <meta name="keywords" content="mehmonxona, hotel, luxury hotel, presidential suite, spa, resort, toshkent mehmonxona, booking, xona bron qilish">
+  <meta property="og:title" content="AURUM Palace & Resort | 5-Star Luxury Hotel & Spa">
+  <meta property="og:description" content="Betakror hashamat va olijanob mehmondo'stlik maskani. Xonalarni onlayn hisoblang va qulay bron qiling.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20width=%2232%22%20height=%2232%22><circle cx=%2216%22 cy=%2216%22 r=%2214%22 fill=%22%230d1117%22 stroke=%22%23d4af37%22 stroke-width=%222%22/><text x=%2250%%22 y=%2256%%22 font-family=%22serif%22 font-size=%2216%22 fill=%22%23d4af37%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-weight=%22bold%22>A</text></svg>">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement & Quick Contact Bar -->
+  <aside class="top-bar" aria-label="Tezkor aloqa va ma'lumot">
+    <div class="container top-bar-inner">
+      <div class="top-bar-contact">
+        <a href="tel:+998712008899" id="top-phone">
+          <span>📞</span> +998 (71) 200-88-99
+        </a>
+        <a href="mailto:concierge@aurumpalace.uz" id="top-email">
+          <span>✉️</span> concierge@aurumpalace.uz
+        </a>
+        <span>📍 Amir Temur shoh ko'chasi 77, Toshkent</span>
+      </div>
+      <div class="top-bar-tools">
+        <label for="currency-top" class="sr-only" style="display:none;">Valyuta</label>
+        <select id="currency-top" class="currency-select" title="Valyutani tanlang">
+          <option value="USD">USD ($)</option>
+          <option value="UZS">UZS (so'm)</option>
+          <option value="EUR">EUR (€)</option>
+        </select>
+        <select class="lang-select" title="Tilni tanlang">
+          <option value="uz">O'zbekcha</option>
+          <option value="ru">Русский</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Header -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="brand" id="brand-logo">
+        <div class="brand-crest">
+          <span class="brand-crest-letter">A</span>
+        </div>
+        <div class="brand-info">
+          <span class="brand-name">AURUM PALACE</span>
+          <span class="brand-tag">GRAND RESORT & SPA ★★★★★</span>
+        </div>
+      </a>
+
+      <!-- Desktop & Mobile Navigation Links -->
+      <nav aria-label="Asosiy menyu">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#hero" class="nav-link active">Bosh Sahifa</a></li>
+          <li><a href="#rooms" class="nav-link">Xonalar & Lyukslar</a></li>
+          <li><a href="#spa" class="nav-link">SPA & Salomatlik</a></li>
+          <li><a href="#amenities" class="nav-link">Qulayliklar</a></li>
+          <li><a href="#gallery" class="nav-link">Galereya</a></li>
+          <li><a href="#testimonials" class="nav-link">Sharhlar</a></li>
+          <li><a href="#contact" class="nav-link">Aloqa</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta-wrap">
+        <button class="btn btn-gold btn-sm" onclick="openBookingModalForRoom(1)" id="nav-book-btn">
+          <span>✦</span> Bron Qilish
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Menyuni ochish">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-bg-wrapper">
+        <img src="assets/images/hero.jpg" alt="AURUM Palace Luxury Exterior" class="hero-bg-img" />
+        <div class="hero-overlay"></div>
+      </div>
+      
+      <div class="container hero-content">
+        <div class="hero-rating-badge">
+          <span class="stars">★★★★★</span>
+          <span style="font-size: 0.85rem; font-weight: 600; color: #fff; letter-spacing: 0.05em;">FORBES 5-STAR LUXURY HOSPITALITY</span>
+        </div>
+        
+        <h1 class="hero-title">
+          Betakror <span class="gold-gradient-text">Hashamat</span> va Osoyishta Sokinlik
+        </h1>
+        
+        <p class="hero-subtitle">
+          Dunyo darajasidagi oliyjanob mehmondo'stlik, termal SPA marosimlari va shaxsiy butler xizmati bilan unutilmas dam olish lahzalarini kashf eting.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#rooms" class="btn btn-gold btn-lg" id="hero-explore-btn">
+            Xonalarni Tanlash
+          </a>
+          <button class="btn btn-outline btn-lg" onclick="openBookingModalForRoom(1)" id="hero-quick-book-btn">
+            <span>📅</span> Onlayn Hisoblash
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Interactive Booking Search Bar -->
+    <div class="container booking-bar-wrapper">
+      <form class="booking-bar" id="hero-booking-form">
+        <div class="booking-field">
+          <span class="field-label">📅 Kirish Sanasi</span>
+          <div class="field-input-wrap">
+            <input type="date" id="hero-checkin" class="field-input" required />
+          </div>
+        </div>
+
+        <div class="booking-field">
+          <span class="field-label">📅 Chiqish Sanasi</span>
+          <div class="field-input-wrap">
+            <input type="date" id="hero-checkout" class="field-input" required />
+          </div>
+        </div>
+
+        <div class="booking-field">
+          <span class="field-label">👥 Mehmonlar Soni</span>
+          <div class="field-input-wrap">
+            <select id="hero-guests" class="field-select">
+              <option value="1">1 Mehmon (Yakkaxon)</option>
+              <option value="2" selected>2 Mehmon (Juftlik)</option>
+              <option value="3">3 Mehmon</option>
+              <option value="4">4 Mehmon (Oila)</option>
+              <option value="5">5+ Mehmon (VIP)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="booking-field">
+          <span class="field-label">👑 Xona Toifasi</span>
+          <div class="field-input-wrap">
+            <select id="hero-room-type" class="field-select">
+              <option value="all">Barcha Xonalar</option>
+              <option value="presidential">Imperial Presidential</option>
+              <option value="deluxe">Deluxe Ocean Riviera</option>
+              <option value="penthouse">Royal Penthouse Suite</option>
+              <option value="executive">Executive Business</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-gold booking-btn" id="hero-submit-booking-btn">
+          <span>🔍</span> Mavjudlikni Tekshirish
+        </button>
+      </form>
+    </div>
+
+    <!-- Trust & Statistics Bar -->
+    <section class="stats-section" aria-label="Mehmonxona ko'rsatkichlari">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-icon">👑</span>
+            <div class="stat-number">120+</div>
+            <div class="stat-label">Hashamatli Xonalar & Lyukslar</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">★</span>
+            <div class="stat-number">99.4%</div>
+            <div class="stat-label">Mehmonlar Mamnuniyati</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">🍷</span>
+            <div class="stat-number">3 Ta</div>
+            <div class="stat-label">Michelin Darajasidagi Restoran</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">🛎️</span>
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Shaxsiy Butler & VIP Konsyerj</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rooms & Suites Showcase -->
+    <section class="rooms-section" id="rooms">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Eksklyuziv Xonalar</span>
+          <h2 class="section-title">Olijanob Xonalar & Lyukslar To'plami</h2>
+          <p class="section-subtitle">
+            Har bir xonada yuqori darajadagi qulaylik, zamonaviy avtomatlashtirish texnologiyalari va beqiyos estetika uyg'unlashgan.
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="room-filter-tabs" role="tablist">
+          <button class="filter-tab active" data-category="all" role="tab">Barchasi (6)</button>
+          <button class="filter-tab" data-category="presidential" role="tab">Prezident Lyukslari</button>
+          <button class="filter-tab" data-category="deluxe" role="tab">Deluxe Suitasi</button>
+          <button class="filter-tab" data-category="penthouse" role="tab">Royal Penthouse</button>
+          <button class="filter-tab" data-category="executive" role="tab">Executive Business</button>
+        </div>
+
+        <!-- Dynamic Grid of Rooms -->
+        <div class="rooms-grid" id="rooms-grid">
+          <!-- Populated by JavaScript with rich cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Signature Imperial Spa & Wellness Experience -->
+    <section class="amenities-section" id="spa">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Imperial SPA & Wellness</span>
+          <h2 class="section-title">Tan va Ruh Uchun Mukammal Uyg'unlik</h2>
+          <p class="section-subtitle">
+            Qadimiy sharqona an'analar va eng ilg'or Shveytsariya go'zallik terapiyalari uyg'unlashgan sokin osoyishtalik maskani.
+          </p>
+        </div>
+
+        <div class="amenity-featured">
+          <div class="amenity-featured-img-wrap">
+            <img src="assets/images/spa.jpg" alt="Imperial Spa Infinity Pool & Thermal Bath" class="amenity-featured-img" loading="lazy" />
+          </div>
+          <div class="amenity-featured-content">
+            <span class="section-tag">Termal Dam Olish</span>
+            <h3 style="font-size: 2rem; margin-bottom: 16px;">Panoramik Termal Hovuz & Sauna</h3>
+            <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7;">
+              O'rmon va tabiat manzarasi bag'rida joylashgan yopiq isitiladigan cheksiz basseyn (Infinity Pool), fin saunasi, evkalipt bug' xonasi va Himoloy pushti tuzi g'ori.
+            </p>
+
+            <div class="amenity-list">
+              <div class="amenity-item-bullet">
+                <span class="bullet-icon">✦</span>
+                <span>Mineral termal suvli gidromassaj vannalari</span>
+              </div>
+              <div class="amenity-item-bullet">
+                <span class="bullet-icon">✦</span>
+                <span>Shaxsiy aromaterapiya va tosh massaji seanslari</span>
+              </div>
+              <div class="amenity-item-bullet">
+                <span class="bullet-icon">✦</span>
+                <span>Yashil choy va yangi siqilgan detoks sharbatlar bari</span>
+              </div>
+            </div>
+
+            <button class="btn btn-gold" onclick="openBookingModalForRoom(1)">
+              <span>💆</span> SPA Dasturini Bron Qilish
+            </button>
+          </div>
+        </div>
+
+        <!-- Additional Amenities Grid -->
+        <div class="amenities-cards-grid" id="amenities">
+          <div class="amenity-small-card">
+            <div class="amenity-icon-box">🍽️</div>
+            <h4>Haute Cuisine Restoranlari</h4>
+            <p>Michelin yulduziga nomzod oshpazlarimiz tomonidan tayyorlangan nozik fransuz va milliy shohona taomlar.</p>
+          </div>
+
+          <div class="amenity-small-card">
+            <div class="amenity-icon-box">🚁</div>
+            <h4>VIP Vertolyot & Transfer</h4>
+            <p>Aeroportdan to'g'ridan-to'g'ri mehmonxona tomidagi maydonchaga yoki shaxsiy Mercedes Maybach korteji bilan yetkazish.</p>
+          </div>
+
+          <div class="amenity-small-card">
+            <div class="amenity-icon-box">🍷</div>
+            <h4>Skyline Wine Cellar & Bar</h4>
+            <p>Kolleksion vinolar, noyob qadimiy shampanlar va professional sommelier degustatsiya kechalari.</p>
+          </div>
+
+          <div class="amenity-small-card">
+            <div class="amenity-icon-box">🏛️</div>
+            <h4>Imperial Grand Ballroom</h4>
+            <p>Yuqori darajadagi xalqaro sammitlar, gala kechalar va shohona to'ylar uchun 600 kishilik hashamatli zal.</p>
+          </div>
+
+          <div class="amenity-small-card">
+            <div class="amenity-icon-box">💪</div>
+            <h4>Technogym Fitness Markazi</h4>
+            <p>Eng so'nggi avlod trenajyorlari, shaxsiy fitnes instruktorlari va yoga bo'yicha professional murabbiylar.</p>
+          </div>
+
+          <div class="amenity-small-card">
+            <div class="amenity-icon-box">🛎️</div>
+            <h4>24/7 Shaxsiy Butler Xizmati</h4>
+            <p>Har qanday nozik istaklaringizni tezkor va benuqson bajaruvchi maxsus tayyorlangan xizmatchilar guruhi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Photo Gallery with Lightbox -->
+    <section class="gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Foto Sayohat</span>
+          <h2 class="section-title">Elegans va Hashamat Nafasi</h2>
+          <p class="section-subtitle">
+            AURUM Palace ning har bir burchagida muhrlangan nafislikni o'z ko'zingiz bilan ko'ring.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item span-2">
+            <img src="assets/images/hero.jpg" alt="Fasadi va Hovuzlar" class="gallery-img" />
+            <div class="gallery-overlay">
+              <span class="gallery-sub">Bosh Bino</span>
+              <h4 class="gallery-caption">Tungi Fasad & Nurli Favvoralar</h4>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="assets/images/presidential.jpg" alt="Presidential Suite Interior" class="gallery-img" />
+            <div class="gallery-overlay">
+              <span class="gallery-sub">Xonalar</span>
+              <h4 class="gallery-caption">Imperial Presidential Suite</h4>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="assets/images/deluxe.jpg" alt="Deluxe Room Balcony" class="gallery-img" />
+            <div class="gallery-overlay">
+              <span class="gallery-sub">Xonalar</span>
+              <h4 class="gallery-caption">Deluxe Riviera Suite</h4>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="assets/images/spa.jpg" alt="Spa and Wellness Retreat" class="gallery-img" />
+            <div class="gallery-overlay">
+              <span class="gallery-sub">Salomatlik</span>
+              <h4 class="gallery-caption">Termal SPA & Infinity Pool</h4>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80" alt="Fine Dining Restaurant" class="gallery-img" />
+            <div class="gallery-overlay">
+              <span class="gallery-sub">Gastronomiya</span>
+              <h4 class="gallery-caption">L'Orangerie Restorani</h4>
+            </div>
+          </div>
+
+          <div class="gallery-item span-2">
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80" alt="Royal Penthouse Suite Terrace" class="gallery-img" />
+            <div class="gallery-overlay">
+              <span class="gallery-sub">Eksklyuziv</span>
+              <h4 class="gallery-caption">Royal Penthouse Terassasi</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guest Testimonials & Reviews -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Mehmonlarimiz Fikrlari</span>
+          <h2 class="section-title">Oliy Darajadagi E'tirof va Sharhlar</h2>
+          <p class="section-subtitle">
+            Dunyoning eng nufuzli mehmonlari AURUM Palace dagi taassurotlari bilan bo'lishadilar.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="quote-mark">“</div>
+            <p class="testimonial-text">
+              "Presidential Suite dagi xizmat ko'rsatish va derazadan ochilgan shahar manzarasi so'z bilan ta'riflab bo'lmas darajada go'zal. Butlerimiz har bir mayda detalga e'tibor qaratdi. Haqiqiy 5 yulduzli durdona!"
+            </p>
+            <div class="guest-info">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Elena Rostova" class="guest-avatar" />
+              <div class="guest-details">
+                <h5>Elena Rostova</h5>
+                <span>Dubay, BAA 🇦🇪 · VIP Mehmon</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-mark">“</div>
+            <p class="testimonial-text">
+              "Biznes muzokaralar va qisqa hordiq uchun Toshkentdagi eng mukammal joy. Executive suita ichidagi akustika, tezkor optik internet va SPA markazi meni hayratda qoldirdi. Doimiy tanlovim!"
+            </p>
+            <div class="guest-info">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Alexander Vance" class="guest-avatar" />
+              <div class="guest-details">
+                <h5>Alexander Vance</h5>
+                <span>London, Buyuk Britaniya 🇬🇧 · Bosh Direktor</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-mark">“</div>
+            <p class="testimonial-text">
+              "Oilamiz bilan dam olish uchun Garden Villa ni tanladik. Shaxsiy yapon bog'i, sukunat va bolalar uchun yaratilgan xavfsiz muhit unutilmas bo'ldi. Oshpaz tayyorlagan shom taomi alohida maqtovga loyiq."
+            </p>
+            <div class="guest-info">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Farrux Qodirov" class="guest-avatar" />
+              <div class="guest-details">
+                <h5>Farrux Qodirov</h5>
+                <span>Toshkent, O'zbekiston 🇺🇿 · Investor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Offers & Exclusive Packages -->
+    <section class="offers-section" id="offers">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Maxsus Takliflar</span>
+          <h2 class="section-title">Eksklyuziv Paketlar va Imtiyozlar</h2>
+          <p class="section-subtitle">
+            Har bir fasl uchun maxsus tayyorlangan imtiyozli dam olish dasturlaridan foydalaning.
+          </p>
+        </div>
+
+        <div class="offers-grid">
+          <div class="offer-card">
+            <span class="offer-badge">-20% Maxsus Chegirma</span>
+            <h3 class="offer-title">Romantik Hafta Oxiri & SPA</h3>
+            <p class="offer-desc">
+              Deluxe Riviera suitasida 2 kecha, xonaga shampan va mevalar savati, er-xotinlar uchun shaxsiy aromaterapiya SPA seansi va kechki kechiktirilgan chiqish (Late Check-out 16:00 gacha).
+            </p>
+            <button class="btn btn-gold" onclick="openBookingModalForRoom(2)">
+              Ushbu Taklifni Bron Qilish
+            </button>
+          </div>
+
+          <div class="offer-card">
+            <span class="offer-badge">VIP Paketi</span>
+            <h3 class="offer-title">Executive Business & Concierge</h3>
+            <p class="offer-desc">
+              Executive suitada 3 kecha va undan ko'proq yashashda aeroportdan bepul VIP transfer (Mercedes S-Class), bepul konferens-zal ijarasi va 24/7 shaxsiy biznes konsyerj.
+            </p>
+            <button class="btn btn-gold" onclick="openBookingModalForRoom(4)">
+              Biznes Paketni Tanlash
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Location & VIP Concierge Contact -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info-card">
+            <div>
+              <span class="section-tag">24/7 Aloqa</span>
+              <h2 style="font-size: 2.2rem; margin-top: 8px; margin-bottom: 12px;">VIP Konsyerj Xizmati</h2>
+              <p style="color: var(--text-muted); font-size: 0.95rem;">
+                Har qanday savol, maxsus buyurtma yoki shaxsiy bron qilish masalalarida biz bilan istalgan vaqt bog'lanishingiz mumkin.
+              </p>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">📍</div>
+              <div class="info-text">
+                <h4>Manzilimiz</h4>
+                <p>Amir Temur shoh ko'chasi 77, Mirzo Ulug'bek tumani, Toshkent shahri</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">📞</div>
+              <div class="info-text">
+                <h4>To'g'ridan-to'g'ri Telefon</h4>
+                <p><a href="tel:+998712008899">+998 (71) 200-88-99</a> (Ko'p tarmoqli)</p>
+                <p><a href="tel:+998901234567">+998 (90) 123-45-67</a> (VIP Konsyerj)</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">✉️</div>
+              <div class="info-text">
+                <h4>Elektron Pochta</h4>
+                <p><a href="mailto:reservation@aurumpalace.uz">reservation@aurumpalace.uz</a></p>
+                <p><a href="mailto:concierge@aurumpalace.uz">concierge@aurumpalace.uz</a></p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">✈️</div>
+              <div class="info-text">
+                <h4>Masofalar</h4>
+                <p>Islom Karimov nomidagi Xalqaro Aeroport: 12 daqiqa</p>
+                <p>Toshkent City Park: 8 daqiqa</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-card">
+            <h3 style="font-size: 1.6rem; margin-bottom: 8px;">Konsyerjga Xabar Yuborish</h3>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 24px;">
+              Quyidagi shaklni to'ldiring, shaxsiy menejerimiz 15 daqiqa ichida siz bilan bog'lanadi.
+            </p>
+
+            <form id="contact-form">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="contact-name" class="form-label">Ismingiz *</label>
+                  <input type="text" id="contact-name" class="form-input" placeholder="Masalan: Sardor Aliyev" required />
+                </div>
+                <div class="form-group">
+                  <label for="contact-phone" class="form-label">Telefon Raqamingiz *</label>
+                  <input type="tel" id="contact-phone" class="form-input" placeholder="+998 90 123 45 67" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Elektron Pochta</label>
+                <input type="email" id="contact-email" class="form-input" placeholder="email@namuna.uz" />
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Mavzu</label>
+                <select id="contact-subject" class="form-select">
+                  <option value="booking">Xonani maxsus bron qilish</option>
+                  <option value="spa">SPA va Termal muolajalar</option>
+                  <option value="event">Banket yoki Konferensiya o'tkazish</option>
+                  <option value="transfer">Aeroportdan transfer va vertolyot</option>
+                  <option value="other">Boshqa savol</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Xabaringiz *</label>
+                <textarea id="contact-message" class="form-textarea" rows="4" placeholder="Sizning istaklaringiz va maxsus talablaringiz..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-gold btn-lg" style="width: 100%;">
+                <span>✉️</span> Xabarni Yuborish
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="#" class="brand">
+            <div class="brand-crest">
+              <span class="brand-crest-letter">A</span>
+            </div>
+            <div class="brand-info">
+              <span class="brand-name">AURUM PALACE</span>
+              <span class="brand-tag">GRAND RESORT & SPA</span>
+            </div>
+          </a>
+          <p class="footer-brand-desc">
+            Besh yulduzli xalqaro me'yorlarga to'liq javob beruvchi, nafis sharqona mehmondo'stlik va zamonaviy yevropacha hashamatni o'zida jamlagan majmua.
+          </p>
+          <div class="footer-awards">
+            <span class="award-badge">🏆 FORBES 5-STAR 2026</span>
+            <span class="award-badge">✦ WORLD LUXURY HOTEL</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Tezkor Havolalar</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Bosh Sahifa</a></li>
+            <li><a href="#rooms">Xonalar Katalogi</a></li>
+            <li><a href="#spa">Termal SPA</a></li>
+            <li><a href="#amenities">Restoran & Bar</a></li>
+            <li><a href="#offers">Maxsus Paketlar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Qulayliklar</h4>
+          <ul class="footer-links">
+            <li><a href="#amenities">24/7 Shaxsiy Butler</a></li>
+            <li><a href="#amenities">Aeroport Maybach Transfer</a></li>
+            <li><a href="#gallery">Tomdagi Vertolyot Maydoni</a></li>
+            <li><a href="#spa">Himoloy Tuz Saunasi</a></li>
+            <li><a href="#contact">VIP Konferens Zallari</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Eksklyuziv Yangiliklar</h4>
+          <p style="font-size: 0.88rem; color: var(--text-dim); margin-bottom: 12px;">
+            Yopiq takliflar va yangi mavsumiy chegirmalar haqida birinchi bo'lib xabardor bo'ling.
+          </p>
+          <form id="newsletter-form" class="footer-newsletter-form">
+            <input type="email" class="footer-newsletter-input" placeholder="Elektron pochtangiz..." required />
+            <button type="submit" class="btn btn-gold btn-sm">A'zo bo'lish</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 AURUM Palace Grand Resort & Spa. Barcha huquqlar himoyalangan.</p>
+        <p>Toshkent, O'zbekiston · Maxfiylik Siyosati · Foydalanish Qoidalari</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===============================================================
+       INTERACTIVE BOOKING MODAL WITH DYNAMIC CALCULATOR
+       =============================================================== -->
+  <div class="modal-backdrop" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="modal-booking-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <span class="section-tag" style="margin-bottom: 4px;">Tezkor & Kafolatlangan</span>
+          <h3 class="modal-title" id="modal-booking-title">Xonani Onlayn Bron Qilish</h3>
+        </div>
+        <button class="modal-close-btn" id="close-booking-modal" aria-label="Yopish">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Left: Form inputs & Extras -->
+        <form id="main-booking-form">
+          <h4 class="form-step-title">
+            <span>1</span> Xona va Sanalarni Tanlash
+          </h4>
+
+          <div class="form-group">
+            <label for="modal-room-select" class="form-label">Xona Toifasi</label>
+            <select id="modal-room-select" class="form-select">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="modal-checkin" class="form-label">Kirish Sanasi</label>
+              <input type="date" id="modal-checkin" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label for="modal-checkout" class="form-label">Chiqish Sanasi</label>
+              <input type="date" id="modal-checkout" class="form-input" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="modal-guests" class="form-label">Mehmonlar Soni</label>
+            <select id="modal-guests" class="form-select">
+              <option value="1">1 Mehmon</option>
+              <option value="2" selected>2 Mehmon</option>
+              <option value="3">3 Mehmon</option>
+              <option value="4">4 Mehmon</option>
+            </select>
+          </div>
+
+          <h4 class="form-step-title" style="margin-top: 24px;">
+            <span>2</span> Qo'shimcha VIP Xizmatlar (Tanlov)
+          </h4>
+          <div class="extra-services-list" id="extra-services-container">
+            <!-- Dynamically populated with interactive checkboxes -->
+          </div>
+
+          <h4 class="form-step-title" style="margin-top: 24px;">
+            <span>3</span> Mehmon Ma'lumotlari
+          </h4>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="guest-name" class="form-label">Ism va Familiya *</label>
+              <input type="text" id="guest-name" class="form-input" placeholder="Masalan: Jamshid Karimov" required />
+            </div>
+            <div class="form-group">
+              <label for="guest-phone" class="form-label">Telefon Raqam *</label>
+              <input type="tel" id="guest-phone" class="form-input" placeholder="+998 90 999 88 77" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="guest-email" class="form-label">Elektron Pochta (Vaucher yuborish uchun) *</label>
+            <input type="email" id="guest-email" class="form-input" placeholder="jamshid@mail.uz" required />
+          </div>
+
+          <div class="form-group">
+            <label for="guest-notes" class="form-label">Maxsus Istaklar yoki Parvoz Raqami</label>
+            <textarea id="guest-notes" class="form-textarea" rows="2" placeholder="Masalan: Tinch qavat, deraza quyoshga qaragan bo'lsin..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-gold btn-lg" style="width: 100%; margin-top: 10px;" id="confirm-booking-btn">
+            <span>✓</span> Bron Qilishni Tasdiqlash
+          </button>
+        </form>
+
+        <!-- Right: Live Dynamic Price Summary Panel -->
+        <aside class="booking-summary-panel">
+          <h4 style="font-size: 1.15rem; margin-bottom: 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 10px;">
+            To'lov Hisob-Kitobi
+          </h4>
+
+          <div class="summary-room-preview">
+            <img src="assets/images/presidential.jpg" alt="Room preview" id="summary-room-img" class="summary-img" />
+            <div class="summary-room-info">
+              <h4 id="summary-room-title">Imperial Presidential Suite</h4>
+              <p>5-Star Luxury Accomodation</p>
+            </div>
+          </div>
+
+          <div class="summary-breakdown">
+            <div class="summary-row">
+              <span id="summary-nights-label">Xona narxi (2 tun):</span>
+              <strong id="summary-room-price">$900</strong>
+            </div>
+            <div class="summary-row">
+              <span>Qo'shimcha VIP xizmatlar:</span>
+              <strong id="summary-extras-price">$0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Mehmonxona xizmat solig'i (10%):</span>
+              <strong id="summary-tax-price">$90</strong>
+            </div>
+            <div class="summary-row total-row">
+              <span>JAMI TO'LOV:</span>
+              <strong class="total-amount" id="summary-total-price">$990</strong>
+            </div>
+          </div>
+
+          <div style="background: rgba(212, 175, 55, 0.06); border: 1px dashed var(--border-gold); padding: 14px; border-radius: var(--radius-md); font-size: 0.82rem; color: var(--text-muted); margin-top: auto;">
+            <p style="margin-bottom: 4px;">🔒 <strong>100% Xavfsiz & Bepul bekor qilish:</strong></p>
+            <p>Kelishdan 48 soat oldin bepul bekor qilish imkoniyati mavjud.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===============================================================
+       BOOKING CONFIRMATION & VOUCHER RECEIPT MODAL
+       =============================================================== -->
+  <div class="modal-backdrop" id="voucher-modal" role="dialog" aria-modal="true">
+    <div class="modal-card receipt-modal-card">
+      <div class="receipt-stamp">✓</div>
+      <span class="section-tag">Bron Muvaffaqiyatli Bajarildi</span>
+      <h2 style="font-size: 1.85rem; margin-top: 10px; margin-bottom: 8px;">Elektron Bron Vaucheri</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        Sizning buyurtmangiz qabul qilindi va tasdiqlandi. Nusxasi emailingizga yuborildi.
+      </p>
+
+      <div class="ticket-container">
+        <div class="ticket-header">
+          <div>
+            <h4 style="font-family: var(--font-serif); font-size: 1.1rem; color: #fff;">AURUM PALACE RESORT</h4>
+            <span style="font-size: 0.75rem; color: var(--gold-primary);">OFFICIAL GUEST VOUCHER</span>
+          </div>
+          <div class="ticket-code" id="ticket-booking-code">#AUR-2026-8941</div>
+        </div>
+
+        <div class="ticket-grid">
+          <div class="ticket-field">
+            <label>Mehmon Ismi</label>
+            <span id="ticket-guest-name">Jamshid Karimov</span>
+          </div>
+          <div class="ticket-field">
+            <label>Telefon</label>
+            <span id="ticket-phone">+998 90 999 88 77</span>
+          </div>
+          <div class="ticket-field">
+            <label>Tanlangan Xona</label>
+            <span id="ticket-room">Imperial Presidential Suite</span>
+          </div>
+          <div class="ticket-field">
+            <label>Yashash Sanalari</label>
+            <span id="ticket-dates">2026-10-12 — 2026-10-14</span>
+          </div>
+          <div class="ticket-field">
+            <label>Mehmonlar Soni</label>
+            <span id="ticket-guests">2 kishi</span>
+          </div>
+          <div class="ticket-field">
+            <label>Umumiy Qiymat</label>
+            <span id="ticket-total" style="color: var(--gold-light); font-size: 1.1rem;">$990</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 14px; justify-content: center;">
+        <button class="btn btn-gold" id="print-voucher-btn">
+          <span>🖨️</span> Vaucherni Chop Etish / Saqlash
+        </button>
+        <button class="btn btn-outline" id="close-voucher-modal">
+          Yopish
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===============================================================
+       ROOM DETAIL QUICK VIEW MODAL
+       =============================================================== -->
+  <div class="modal-backdrop" id="room-detail-modal" role="dialog" aria-modal="true">
+    <div class="modal-card" style="max-width: 800px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="detail-modal-title">Imperial Presidential Suite</h3>
+        <button class="modal-close-btn" id="close-room-detail-modal">✕</button>
+      </div>
+      <div style="padding: 24px;">
+        <div style="height: 320px; border-radius: var(--radius-md); overflow: hidden; margin-bottom: 20px;">
+          <img src="assets/images/presidential.jpg" alt="Detail room view" id="detail-modal-img" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <span class="room-badge" id="detail-modal-badge" style="position: static;">VIP Tanlov</span>
+          <div style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--gold-light);" id="detail-modal-price">
+            $450 / tun
+          </div>
+        </div>
+        <p id="detail-modal-desc" style="color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;"></p>
+
+        <div class="room-specs" style="margin-bottom: 24px;">
+          <div class="spec-item">
+            <span class="spec-icon">📐</span>
+            <span class="spec-text" id="detail-modal-size">140 m²</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-icon">👥</span>
+            <span class="spec-text" id="detail-modal-guests">3 Mehmon</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-icon">👑</span>
+            <span class="spec-text" id="detail-modal-bed">Royal King Size</span>
+          </div>
+        </div>
+
+        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #fff;">Xonadagi Maxsus Qulayliklar:</h4>
+        <ul id="detail-modal-features" style="list-style: none; margin-bottom: 28px;">
+          <!-- Features -->
+        </ul>
+
+        <button class="btn btn-gold btn-lg" style="width: 100%;" id="detail-modal-book-btn">
+          <span>📅</span> Ushbu Xonani Bron Qilish
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===============================================================
+       GALLERY LIGHTBOX MODAL
+       =============================================================== -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <button class="lightbox-close" id="close-lightbox" aria-label="Rasmni yopish">✕</button>
+    <div class="lightbox-img-wrap">
+      <img src="" alt="Enlarged view" class="lightbox-img" id="lightbox-img" />
+    </div>
+  </div>
+
+  <!-- Floating Quick Actions (Scroll to Top) -->
+  <div class="floating-actions">
+    <button class="btn-floating" id="scroll-top-btn" title="Yuqoriga qaytish" style="opacity: 0; pointer-events: none;">
+      ↑
+    </button>
+  </div>
+
+  <!-- JavaScript File -->
+  <script src="app.js"></script>
+</body>
+</html>
